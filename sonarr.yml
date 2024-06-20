@@ -19,4 +19,5 @@ services:
 
 networks:
   mymacvlan:
-    external: true
+    external:
+      name: myMacVlan
