@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  jackett:
+    image: lscr.io/linuxserver/jackett:latest
+    container_name: jackett
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - AUTO_UPDATE=true #optional
+      - RUN_OPTS= #optional
+    volumes:
+      - /config/jackett:/config
+      - /downloads:/downloads
+    networks:
+      mymacvlan:
+        ipv4_address: 10.203.20.46
+    restart: unless-stopped
+
+networks:
+  mymacvlan:
+    external:
+      name: myMacVlan
