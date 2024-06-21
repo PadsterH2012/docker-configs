@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  overseerr:
+    image: lscr.io/linuxserver/overseerr:latest
+    container_name: overseerr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/overseerr/config:/config
+    networks:
+      mymacvlan:
+        ipv4_address: 10.203.20.48
+    restart: unless-stopped
+
+networks:
+  mymacvlan:
+    external:
+      name: myMacVlan
