@@ -10,7 +10,7 @@ services:
       - VERSION=docker
       - PLEX_CLAIM= #optional
     volumes:
-      - /config/radarr:/config
+      - /config/plex:/config
       - /media/Films:/Films #optional
       - /media/TV:/TV #optional
     restart: unless-stopped
