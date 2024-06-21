@@ -9,7 +9,7 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - /path/to/overseerr/config:/config
+      - /config/overseerr:/config
     networks:
       mymacvlan:
         ipv4_address: 10.203.20.48
