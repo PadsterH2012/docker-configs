@@ -9,9 +9,9 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - /path/to/sonarr/data:/config
-      - /path/to/tvseries:/tv #optional
-      - /path/to/downloadclient-downloads:/downloads #optional
+      - /config/sonarr:/config
+      - /media/TV:/TV #optional
+      - /downloads:/downloads #optional
     networks:
       mymacvlan:
         ipv4_address: 10.203.20.40
