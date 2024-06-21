@@ -10,8 +10,8 @@ services:
       - TZ=Etc/UTC
     volumes:
       - /path/to/radarr/data:/config
-      - /path/to/tvseries:/tv #optional
-      - /path/to/downloadclient-downloads:/downloads #optional
+      - /media/Films:/Films #optional
+      - /downloads:/downloads #optional
     networks:
       mymacvlan:
         ipv4_address: 10.203.20.41
