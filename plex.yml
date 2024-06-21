@@ -24,6 +24,7 @@ services:
       - /config/plex:/config
       - /media/Films:/Films #optional
       - /media/TV:/TV #optional
+      - /media/hidden:/hidden #optional
     networks:
       mymacvlan:
         ipv4_address: 10.203.20.42
