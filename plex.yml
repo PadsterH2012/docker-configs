@@ -1,0 +1,21 @@
+---
+services:
+  plex:
+    image: lscr.io/linuxserver/plex:latest
+    container_name: plex
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - VERSION=docker
+      - PLEX_CLAIM= #optional
+    volumes:
+      - /config/radarr:/config
+      - /media/Films:/Films #optional
+      - /media/TV:/TV #optional
+    restart: unless-stopped
+
+networks:
+  mymacvlan:
+    external:
+      name: myMacVlan
