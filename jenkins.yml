@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    user: "1000"
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    networks:
+      mymacvlan:
+        ipv4_address: 10.203.20.43
+    volumes:
+      - /config/jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+
+networks:
+  mymacvlan:
+    external:
+      name: myMacVlan
