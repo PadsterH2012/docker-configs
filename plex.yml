@@ -8,7 +8,7 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
       - VERSION=docker
-      - PLEX_CLAIM= #optional
+      - PLEX_CLAIM=claim-mBXqBsmCLFmK6kaz-r4d #optional
     volumes:
       - /config/plex:/config
       - /media/Films:/Films #optional
