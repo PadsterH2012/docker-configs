@@ -16,16 +16,17 @@ services:
       - "19132:19132/udp" # BEDROCK
       - "25500-25600:25500-25600" # MC SERV PORT RANGE
     volumes:
-      - /config/crafty4/backups:/crafty/backups
-      - /config/crafty4/logs:/crafty/logs
-      - /config/crafty4/servers:/crafty/servers
-      - /config/crafty4/config:/crafty/app/config
-      - /config/crafty4/import:/crafty/import
+      - /mnt/configs/crafty4/backups:/crafty/backups
+      - /mnt/configs/crafty4/logs:/crafty/logs
+      - /mnt/configs/crafty4/servers:/crafty/servers
+      - /mnt/configs/crafty4/config:/crafty/app/config
+      - /mnt/configs/crafty4/import:/crafty/import
     networks:
-      mymacvlan:
+      macvlan:
         ipv4_address: 10.203.20.50
-
+    restart: unless-stopped
+    
 networks:
-  mymacvlan:
-    external:
-      name: myMacVlan
+  macvlan:
+    external: true
+    name: myMacVlan
