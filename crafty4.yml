@@ -6,6 +6,8 @@ services:
     image: registry.gitlab.com/crafty-controller/crafty-4:latest
     restart: always
     environment:
+      - PUID=1000
+      - PGID=1000
       - TZ=Etc/UTC
     ports:
       - "8000:8000" # HTTP
