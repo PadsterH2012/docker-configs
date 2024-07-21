@@ -5,19 +5,22 @@ services:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=1001
+      - PGID=1001
       - TZ=Etc/UTC
     volumes:
-      - /config/sonarr:/config
-      - /media/TV:/TV #optional
-      - /downloads:/downloads #optional
+      - /mnt/configs/sonarr:/config
+      - /mnt/downloads:/downloads #optional
+      - /mnt/media:/media #optional
+
     networks:
-      mymacvlan:
+      macvlan:
         ipv4_address: 10.203.20.40
     restart: unless-stopped
 
 networks:
-  mymacvlan:
-    external:
-      name: myMacVlan
+  macvlan:
+    external: true
+    name: myMacVlan
+
+      
