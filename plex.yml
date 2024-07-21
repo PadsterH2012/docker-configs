@@ -5,11 +5,11 @@ services:
     image: lscr.io/linuxserver/plex:latest
     container_name: plex
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=1001
+      - PGID=1001
       - TZ=Etc/UTC
       - VERSION=docker
-      - PLEX_CLAIM=claim-mBXqBsmCLFmK6kaz-r4d #optional
+      - PLEX_CLAIM=claim-M7AzpBQ9_G2WCQju_Umn #optional
     ports:
       - 32400:32400
       - 1900:1900/udp
@@ -21,16 +21,16 @@ services:
       - 32414:32414/udp
       - 32469:32469
     volumes:
-      - /config/plex:/config
-      - /media/Films:/Films #optional
-      - /media/TV:/TV #optional
-      - /hidden:/hidden #optional
+      - /mnt/configs/plex:/config
+      - /mnt/downloads:/downloads #optional
+      - /mnt/media:/media #optional
+      - /mnt/hidden:/hidden #optional
     networks:
-      mymacvlan:
+      macvlan:
         ipv4_address: 10.203.20.42
     restart: unless-stopped
 
 networks:
-  mymacvlan:
-    external:
-      name: myMacVlan
+  macvlan:
+    external: true
+    name: myMacVlan
